@@ -1,0 +1,16 @@
+
+services:
+  backend:
+    build: ./backend   # Ruta al Dockerfile del backend
+    ports:
+      - "3000:3000"  # Mapea el puerto 3000 del contenedor al puerto 3000 del host
+    environment:  # Define las variables de entorno
+      - DB_HOST=localhost
+      - DB_USER=root
+      - DB_PASSWORD=limited.2025
+      - DB_NAME=myfinances
+      - JWT_SECRET=my_finances_secret
+  frontend:
+    build: ./frontend
+    ports:
+      - "4000:4000"
